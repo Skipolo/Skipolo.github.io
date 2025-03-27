@@ -12,6 +12,7 @@
     --background-color: #f4f1ea;
     --paper-color: #fff;
     --border-color: #8b4513;
+    --shadow-color: rgba(139, 69, 19, 0.2);
 }
 
 body {
@@ -49,7 +50,7 @@ header {
     background-color: var(--paper-color);
     padding: 2rem;
     text-align: center;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 4px var(--shadow-color);
     margin-bottom: 2rem;
     border-bottom: 3px solid var(--border-color);
 }
@@ -67,6 +68,21 @@ header::before {
 .header-content {
     max-width: 800px;
     margin: 0 auto;
+    position: relative;
+}
+
+.header-banner {
+    position: absolute;
+    right: -220px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100px;
+    height: 200px;
+    background-image: url('../assets/banner.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.8;
 }
 
 header h1 {
@@ -76,6 +92,7 @@ header h1 {
     font-size: 3.5rem;
     text-transform: uppercase;
     letter-spacing: 2px;
+    text-shadow: 2px 2px 4px var(--shadow-color);
 }
 
 header .subtitle {
@@ -83,12 +100,16 @@ header .subtitle {
     color: var(--accent-color);
     font-size: 1.5rem;
     margin-bottom: 0.5rem;
+    font-style: italic;
 }
 
 header .motto {
     font-style: italic;
     color: #666;
     font-size: 1.1rem;
+    border-top: 1px solid var(--border-color);
+    padding-top: 1rem;
+    margin-top: 1rem;
 }
 
 main {
@@ -103,8 +124,19 @@ main {
     background: var(--paper-color);
     border-radius: 4px;
     padding: 1rem;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 4px var(--shadow-color);
     border: 1px solid var(--border-color);
+    position: relative;
+}
+
+.day-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(to right, transparent, var(--accent-color), transparent);
 }
 
 .day-header {
@@ -120,6 +152,7 @@ main {
     font-size: 2.5rem;
     text-transform: uppercase;
     letter-spacing: 2px;
+    text-shadow: 1px 1px 2px var(--shadow-color);
 }
 
 .post-card {
@@ -127,14 +160,31 @@ main {
     border-radius: 4px;
     padding: 1.5rem;
     margin-bottom: 1.5rem;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 4px var(--shadow-color);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     cursor: pointer;
     border: 1px solid var(--border-color);
+    position: relative;
+    overflow: hidden;
 }
 
 .post-card:last-child {
     margin-bottom: 0;
+}
+
+.post-card::after {
+    content: '';
+    position: absolute;
+    right: -50px;
+    bottom: -50px;
+    width: 100px;
+    height: 200px;
+    background-image: url('../assets/banner.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.1;
+    transform: rotate(-15deg);
 }
 
 .post-card h3 {
@@ -142,6 +192,7 @@ main {
     color: var(--primary-color);
     margin-bottom: 0.5rem;
     font-size: 1.5rem;
+    text-shadow: 1px 1px 2px var(--shadow-color);
 }
 
 .post-card::before {
@@ -151,12 +202,12 @@ main {
     left: 0;
     right: 0;
     height: 2px;
-    background: linear-gradient(to right, transparent, var(--border-color), transparent);
+    background: linear-gradient(to right, transparent, var(--accent-color), transparent);
 }
 
 .post-card:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 8px var(--shadow-color);
 }
 
 .post-card h2 {
@@ -183,27 +234,52 @@ main {
     border-radius: 4px;
     padding: 2rem;
     margin-bottom: 2rem;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 4px var(--shadow-color);
     border: 1px solid var(--border-color);
 }
 
-.post-content h1 {
+.post-header {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.post-header h1 {
     font-family: 'Cinzel', serif;
     color: var(--primary-color);
     font-size: 2.5rem;
-    margin-bottom: 1rem;
+    margin: 1rem 0;
     text-align: center;
+    text-shadow: 1px 1px 2px var(--shadow-color);
 }
 
-.post-content h2 {
+.post-body {
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.post-body h2 {
     font-family: 'Cinzel', serif;
     color: var(--primary-color);
     font-size: 1.8rem;
-    margin: 2rem 0 1rem;
+    margin: 2.5rem 0 1rem;
+    text-align: left;
+    text-shadow: 1px 1px 2px var(--shadow-color);
 }
 
-.post-content p {
-    margin-bottom: 1rem;
+.post-body p {
+    margin-bottom: 1.5rem;
+    text-align: justify;
+}
+
+.post-body ul, .post-body ol {
+    margin-bottom: 1.5rem;
+    padding-left: 2rem;
+}
+
+.post-body li {
+    margin-bottom: 0.5rem;
 }
 
 .post-content img {
@@ -231,11 +307,27 @@ footer {
     color: #666;
     margin-top: 4rem;
     border-top: 3px solid var(--border-color);
+    font-style: italic;
+    position: relative;
+}
+
+.footer-banner {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -100px;
+    width: 50px;
+    height: 100px;
+    background-image: url('../assets/banner.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.6;
 }
 
 .footer-motto {
-    font-style: italic;
     margin-top: 0.5rem;
+    color: var(--accent-color);
 }
 
 /* Mobile Responsiveness */
@@ -258,6 +350,16 @@ footer {
     
     .plotly-graph {
         min-height: 300px;
+    }
+    
+    .header-banner {
+        display: none;
+    }
+    
+    .footer-banner {
+        width: 30px;
+        height: 60px;
+        top: -60px;
     }
 }
 
@@ -341,7 +443,7 @@ footer {
     background-color: var(--accent-color);
     color: white;
     transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(139, 69, 19, 0.2);
+    box-shadow: 0 4px 8px var(--shadow-color);
 }
 
 .back-button:hover::before {
@@ -350,7 +452,7 @@ footer {
 
 .back-button:active {
     transform: translateY(0);
-    box-shadow: 0 2px 4px rgba(139, 69, 19, 0.2);
+    box-shadow: 0 2px 4px var(--shadow-color);
 }
 
 /* Add a decorative line above the button */
@@ -390,14 +492,6 @@ footer {
     font-style: italic;
 }
 
-/* Post Header */
-.post-header {
-    text-align: center;
-    margin-bottom: 2rem;
-    padding-bottom: 1rem;
-    border-bottom: 2px solid var(--border-color);
-}
-
 .day-label {
     font-family: 'Cinzel', serif;
     color: var(--accent-color);
@@ -405,4 +499,206 @@ footer {
     margin-bottom: 0.5rem;
     text-transform: uppercase;
     letter-spacing: 1px;
+}
+
+/* About Button */
+.about-button {
+    position: fixed;
+    right: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--paper-color);
+    border: 2px solid var(--accent-color);
+    border-radius: 4px;
+    padding: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px var(--shadow-color);
+    z-index: 100;
+}
+
+.about-button:hover {
+    transform: translateY(-50%) scale(1.05);
+    box-shadow: 0 4px 8px var(--shadow-color);
+}
+
+.about-button .banner-icon {
+    width: 30px;
+    height: 60px;
+    background-image: url('../assets/banner.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.about-button .button-text {
+    font-family: 'Cinzel', serif;
+    color: var(--accent-color);
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+
+/* About Page Styles */
+.about-content {
+    background: var(--paper-color);
+    border-radius: 4px;
+    padding: 2rem;
+    margin: 2rem auto;
+    box-shadow: 0 2px 4px var(--shadow-color);
+    border: 1px solid var(--border-color);
+    max-width: 800px;
+}
+
+.about-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.dramatic-text {
+    margin-bottom: 1.5rem;
+    text-align: justify;
+    font-style: italic;
+    color: var(--text-color);
+}
+
+.dramatic-text.emphasis {
+    font-size: 1.3rem;
+    text-align: center;
+    color: var(--accent-color);
+    font-weight: bold;
+    text-shadow: 1px 1px 2px var(--shadow-color);
+    margin: 2rem 0;
+    padding: 1rem;
+    border-left: 3px solid var(--accent-color);
+    border-right: 3px solid var(--accent-color);
+}
+
+.warning-section {
+    background: rgba(139, 69, 19, 0.1);
+    padding: 2rem;
+    margin: 2rem 0;
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+}
+
+.warning-text {
+    margin-bottom: 1rem;
+    text-align: center;
+    font-family: 'Cinzel', serif;
+    color: var(--accent-color);
+    font-size: 1.2rem;
+    text-shadow: 1px 1px 2px var(--shadow-color);
+}
+
+.vision-section {
+    margin: 3rem 0;
+}
+
+.about-image {
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.vision-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px var(--shadow-color);
+    border: 2px solid var(--border-color);
+}
+
+.declaration-section {
+    background: var(--accent-color);
+    color: white;
+    padding: 2rem;
+    margin: 2rem 0;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.declaration-text {
+    margin-bottom: 1rem;
+    font-family: 'Cinzel', serif;
+    font-size: 1.3rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.mission-section {
+    margin: 3rem 0;
+    text-align: center;
+}
+
+.author-section {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 2px solid var(--border-color);
+}
+
+.author-image {
+    flex-shrink: 0;
+}
+
+.author-portrait {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--accent-color);
+    box-shadow: 0 4px 8px var(--shadow-color);
+}
+
+.author-info {
+    flex-grow: 1;
+}
+
+.author-info h2 {
+    font-family: 'Cinzel', serif;
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
+}
+
+.author-info p {
+    font-style: italic;
+    color: #666;
+}
+
+@media (max-width: 600px) {
+    .author-section {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .author-portrait {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .declaration-text {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .about-button {
+        right: 1rem;
+        padding: 0.5rem;
+    }
+    
+    .about-button .button-text {
+        display: none;
+    }
+    
+    .about-button .banner-icon {
+        width: 20px;
+        height: 40px;
+    }
 } 

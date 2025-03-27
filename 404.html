@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Redirecting...</title>
+    <script>
+        // Get the current path
+        const path = window.location.pathname;
+        
+        // If we're at the root, redirect to index.html
+        if (path === '/') {
+            window.location.href = '/index.html';
+        } else {
+            // Otherwise, redirect to index.html with the current path as a hash
+            window.location.href = '/index.html#' + path;
+        }
+    </script>
+</head>
+<body>
+    <p>Redirecting...</p>
+</body>
+</html> 

@@ -1,12 +1,12 @@
-# The Great Census of Skyfall: A Report on Our Nations
+# The Great Census: A Chronicle of Civilization's Folly
 
-*By the Office of Records and Statistics*
+*By the Chronicler of Decay*
 
-In the year of our Lord 2024, as the winds of change sweep across the realm of Skyfall, we present to you the first comprehensive census of our great nations. Through tireless efforts of our scribes and scholars, we have gathered data from every corner of our realm.
+In the year of our supposed progress, as the winds of destruction sweep across the realm, we present to you the first comprehensive record of those who would build their empires upon the ashes of nature. Through tireless observation of their destructive endeavors, we have documented the spread of their influence across our once-pristine lands.
 
-## The Nations of Skyfall
+## The Nations of Destruction
 
-Our realm is home to several distinct nations, each with its own unique culture and governance. Through careful observation and documentation, we present the following statistics:
+Our realm has become home to several distinct centers of civilization, each competing in their race to consume and transform the natural world. Through careful observation of their destructive patterns, we present the following statistics:
 
 <div class="plotly-graph" data-plotly='{
     "data": [
@@ -37,9 +37,9 @@ Our realm is home to several distinct nations, each with its own unique culture 
     }
 }'></div>
 
-## Economic Activity
+## The Cost of Progress
 
-The flow of trade and commerce varies significantly across our nations. Here we present the distribution of major economic activities:
+The scars upon the land tell their own story. Here we present the distribution of their destructive activities:
 
 <div class="plotly-graph" data-plotly='{
     "data": [
@@ -54,7 +54,7 @@ The flow of trade and commerce varies significantly across our nations. Here we 
         }
     ],
     "layout": {
-        "title": "Distribution of Economic Activities",
+        "title": "Distribution of Environmental Impact",
         "showlegend": true,
         "paper_bgcolor": "rgba(0,0,0,0)",
         "plot_bgcolor": "rgba(0,0,0,0)",
@@ -64,17 +64,17 @@ The flow of trade and commerce varies significantly across our nations. Here we 
     }
 }'></div>
 
-## Notable Findings
+## Notable Observations
 
-1. **Westhelm** stands as the most populous nation, with a diverse population engaged in various trades and crafts.
-2. **Eastmark** shows remarkable growth in agricultural production, feeding much of the realm.
-3. **Northhaven** maintains a strong focus on mining and resource extraction.
-4. **Southport** has emerged as a major trading hub, connecting the southern regions.
-5. **Centralia** continues to develop its unique blend of all economic activities.
+1. **Westhelm** stands as the most populous nation, their numbers a testament to their relentless expansion and disregard for natural balance.
+2. **Eastmark** shows remarkable growth in agricultural exploitation, transforming once-wild lands into ordered rows of cultivated destruction.
+3. **Northhaven** maintains a strong focus on resource extraction, their mines growing deeper as their understanding grows shallower.
+4. **Southport** has emerged as a major trading hub, facilitating the spread of civilization's influence across the realm.
+5. **Centralia** continues to develop their unique blend of all destructive activities, a microcosm of the greater folly.
 
 ## Future Projections
 
-Based on current trends and historical data, we project continued growth across all nations. The following chart shows our projections for the next five years:
+Based on current patterns of destruction and historical precedents, we project continued expansion of their influence. The following chart shows our projections for the next five years:
 
 <div class="plotly-graph" data-plotly='{
     "data": [
@@ -100,7 +100,7 @@ Based on current trends and historical data, we project continued growth across 
         }
     ],
     "layout": {
-        "title": "Population Growth Projections",
+        "title": "Projected Growth of Destruction",
         "xaxis": {
             "title": "Year"
         },
@@ -118,6 +118,6 @@ Based on current trends and historical data, we project continued growth across 
 
 ## Conclusion
 
-This census provides but a glimpse into the rich tapestry of our realm. As we continue to document and analyze the growth of our nations, we remain committed to providing accurate and timely information to all citizens of Skyfall.
+This census provides but a glimpse into the growing shadow of civilization. As we continue to document their expansion and the resulting destruction, we remain committed to recording the truth of their impact upon the world.
 
-*May the winds of prosperity continue to guide our nations forward.* 
+*May the earth remember what they have forgotten.* 

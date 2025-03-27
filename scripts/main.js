@@ -8,6 +8,19 @@ marked.setOptions({
 // Store posts data
 let posts = [];
 
+// Function to handle hash-based routing
+function handleHashRoute() {
+    const hash = window.location.hash.slice(1); // Remove the # symbol
+    if (hash) {
+        const post = posts.find(p => p.id === hash);
+        if (post) {
+            displayPost(post);
+        }
+    } else {
+        displayPosts();
+    }
+}
+
 // Function to load and parse posts
 async function loadPosts() {
     const postsContainer = document.getElementById('posts-container');
@@ -42,8 +55,20 @@ async function loadPosts() {
             return new Date(a.date) - new Date(b.date);
         });
 
-        // Display posts
-        displayPosts();
+        // Check if we're on a post page
+        const path = window.location.pathname;
+        const postId = path.split('/').pop();
+        
+        if (postId && postId !== 'index.html') {
+            const post = posts.find(p => p.id === postId);
+            if (post) {
+                displayPost(post);
+            } else {
+                displayPosts();
+            }
+        } else {
+            displayPosts();
+        }
     } catch (error) {
         console.error('Error loading posts:', error);
         postsContainer.innerHTML = '<div class="error-message">Error loading posts. Please try again later.</div>';
@@ -59,6 +84,9 @@ function displayPosts() {
         postsContainer.innerHTML = '<div class="no-posts">No articles available at this time.</div>';
         return;
     }
+
+    // Update URL to home
+    window.history.pushState({ view: 'home' }, '', '/');
 
     // Group posts by day
     const postsByDay = {};
@@ -90,7 +118,10 @@ function displayPosts() {
                 <div class="preview">${post.preview}</div>
             `;
 
-            postCard.addEventListener('click', () => displayPost(post));
+            postCard.addEventListener('click', () => {
+                displayPost(post);
+                window.location.hash = post.id;
+            });
             daySection.appendChild(postCard);
         });
 
@@ -116,8 +147,10 @@ async function displayPost(post) {
                 <h1>${post.title}</h1>
                 <div class="date">${formatDate(post.date)}</div>
             </div>
-            ${htmlContent}
-            <button onclick="displayPosts()" class="back-button">← Return to News</button>
+            <div class="post-body">
+                ${htmlContent.replace(/<h1[^>]*>.*?<\/h1>/, '')}
+            </div>
+            <button onclick="handleBackClick()" class="back-button">← Return to News</button>
         `;
 
         postsContainer.innerHTML = '';
@@ -129,6 +162,11 @@ async function displayPost(post) {
         console.error('Error displaying post:', error);
         postsContainer.innerHTML = '<div class="error-message">Error loading post. Please try again later.</div>';
     }
+}
+
+// Function to handle back button click
+function handleBackClick() {
+    window.location.hash = '';
 }
 
 // Function to initialize Plotly charts
@@ -162,5 +200,25 @@ function formatDate(dateString) {
     });
 }
 
+// Handle browser back/forward buttons
+window.addEventListener('popstate', (event) => {
+    if (event.state && event.state.view === 'post') {
+        const post = posts.find(p => p.id === event.state.postId);
+        if (post) {
+            displayPost(post);
+        }
+    } else {
+        displayPosts();
+    }
+});
+
 // Load posts when the page loads
-document.addEventListener('DOMContentLoaded', loadPosts); 
+document.addEventListener('DOMContentLoaded', () => {
+    loadPosts();
+    
+    // Handle hash changes
+    window.addEventListener('hashchange', handleHashRoute);
+    
+    // Handle initial hash
+    handleHashRoute();
+}); 
