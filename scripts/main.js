@@ -18,10 +18,10 @@ async function loadPosts() {
         // For now, we'll use a static array
         posts = [
             {
-                id: 'hello-world',
-                title: 'Hello World: Interactive Data Visualization',
+                id: 'census-report',
+                title: 'The Great Census of Skyfall: A Report on Our Nations',
                 date: '2024-03-20',
-                preview: 'Welcome to my data blog! In this first post, we\'ll explore some interactive visualizations using Plotly.js.',
+                preview: 'A comprehensive census report detailing the population, economic activities, and future projections of the nations within our realm.',
                 content: await fetch('posts/hello-world.md').then(res => res.text())
             }
             // Add more posts here as needed
@@ -73,7 +73,7 @@ async function displayPost(post) {
             <h1>${post.title}</h1>
             <div class="date">${formatDate(post.date)}</div>
             ${htmlContent}
-            <button onclick="displayPosts()" class="back-button">← Back to Posts</button>
+            <button onclick="displayPosts()" class="back-button">← Return to News</button>
         `;
 
         postsContainer.innerHTML = '';
