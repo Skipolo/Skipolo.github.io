@@ -1,3 +1,9 @@
+---
+title: "The Great Census: A Chronicle of Civilization's Folly"
+date: "March 26, 2025"
+author: "By the Chronicler of Decay"
+---
+
 # The Great Census: A Chronicle of Civilization's Folly
 
 *By the Chronicler of Decay*

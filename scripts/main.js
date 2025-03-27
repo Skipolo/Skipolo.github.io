@@ -10,9 +10,10 @@ let posts = [];
 
 // Function to handle hash-based routing
 function handleHashRoute() {
-    const hash = window.location.hash.slice(1); // Remove the # symbol
+    const hash = window.location.hash;
     if (hash) {
-        const post = posts.find(p => p.id === hash);
+        const postId = hash.replace('#post-', '');
+        const post = posts.find(p => p.id === postId);
         if (post) {
             displayPost(post);
         }
@@ -119,8 +120,7 @@ function displayPosts() {
             `;
 
             postCard.addEventListener('click', () => {
-                displayPost(post);
-                window.location.hash = post.id;
+                handlePostClick(post);
             });
             daySection.appendChild(postCard);
         });
@@ -131,42 +131,26 @@ function displayPosts() {
 
 // Function to display a single post
 async function displayPost(post) {
-    const postsContainer = document.getElementById('posts-container');
-    postsContainer.innerHTML = '<div class="loading"></div>';
-
-    try {
-        // Convert markdown to HTML
-        const htmlContent = marked.parse(post.content);
-        
-        // Create post content container
-        const postContent = document.createElement('div');
-        postContent.className = 'post-content';
-        postContent.innerHTML = `
+    const container = document.getElementById('posts-container');
+    container.innerHTML = `
+        <div class="post-content">
             <div class="post-header">
-                <div class="day-label">Day ${post.day}</div>
                 <h1>${post.title}</h1>
-                <div class="date">${formatDate(post.date)}</div>
+                <p class="date">${post.date}</p>
             </div>
             <div class="post-body">
                 ${htmlContent.replace(/<h1[^>]*>.*?<\/h1>/, '')}
             </div>
-            <button onclick="handleBackClick()" class="back-button">← Return to News</button>
-        `;
-
-        postsContainer.innerHTML = '';
-        postsContainer.appendChild(postContent);
-
-        // Initialize any Plotly charts in the post
-        await initializePlotlyCharts(postContent);
-    } catch (error) {
-        console.error('Error displaying post:', error);
-        postsContainer.innerHTML = '<div class="error-message">Error loading post. Please try again later.</div>';
-    }
+            <button class="back-button" onclick="handleBackClick()">Return to News</button>
+        </div>
+    `;
 }
 
 // Function to handle back button click
 function handleBackClick() {
+    // Clear the hash from URL
     window.location.hash = '';
+    displayPosts();
 }
 
 // Function to initialize Plotly charts
@@ -211,6 +195,10 @@ window.addEventListener('popstate', (event) => {
         displayPosts();
     }
 });
+
+// Handle URL changes
+window.addEventListener('hashchange', handleHashRoute);
+window.addEventListener('load', handleHashRoute);
 
 // Load posts when the page loads
 document.addEventListener('DOMContentLoaded', () => {
