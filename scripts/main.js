@@ -5,7 +5,7 @@ marked.setOptions({
     sanitize: false
 });
 
-// Store posts data
+// Global variables
 let posts = [];
 
 // Function to handle hash-based routing
@@ -85,6 +85,21 @@ async function loadPosts() {
     }
 }
 
+// Function to handle post click
+function handlePostClick(post) {
+    // Update URL with post ID
+    const newUrl = `#post-${post.id}`;
+    window.location.hash = newUrl;
+    displayPost(post);
+}
+
+// Function to handle back button click
+function handleBackClick() {
+    // Clear the hash from URL
+    window.location.hash = '';
+    displayPosts();
+}
+
 // Function to display a single post
 async function displayPost(post) {
     const container = document.getElementById('posts-container');
@@ -124,13 +139,6 @@ async function displayPost(post) {
         console.error('Error displaying post:', error);
         container.innerHTML = '<div class="error-message">Error loading post. Please try again later.</div>';
     }
-}
-
-// Function to handle back button click
-function handleBackClick() {
-    // Clear the hash from URL
-    window.location.hash = '';
-    displayPosts();
 }
 
 // Function to initialize Plotly charts
@@ -181,12 +189,4 @@ window.addEventListener('hashchange', handleHashRoute);
 window.addEventListener('load', handleHashRoute);
 
 // Load posts when the page loads
-document.addEventListener('DOMContentLoaded', () => {
-    loadPosts();
-    
-    // Handle hash changes
-    window.addEventListener('hashchange', handleHashRoute);
-    
-    // Handle initial hash
-    handleHashRoute();
-}); 
+document.addEventListener('DOMContentLoaded', loadPosts); 
