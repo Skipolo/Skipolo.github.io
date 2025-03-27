@@ -127,7 +127,7 @@ async function displayPost(post) {
 
     try {
         // Fetch the markdown content
-        const response = await fetch('posts/' + post.content);
+        const response = await fetch('./posts/' + post.content);
         if (!response.ok) {
             throw new Error(`Failed to load post content: ${response.status} ${response.statusText}`);
         }
