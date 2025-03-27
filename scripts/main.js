@@ -21,6 +21,7 @@ async function loadPosts() {
                 id: 'census-report',
                 title: 'The Great Census of Skyfall: A Report on Our Nations',
                 date: '2024-03-20',
+                day: 1,
                 preview: 'A comprehensive census report detailing the population, economic activities, and future projections of the nations within our realm.',
                 content: await fetch('posts/hello-world.md')
                     .then(res => {
@@ -35,8 +36,11 @@ async function loadPosts() {
             // Add more posts here as needed
         ];
 
-        // Sort posts by date (newest first)
-        posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+        // Sort posts by day and date
+        posts.sort((a, b) => {
+            if (a.day !== b.day) return a.day - b.day;
+            return new Date(a.date) - new Date(b.date);
+        });
 
         // Display posts
         displayPosts();
@@ -56,17 +60,41 @@ function displayPosts() {
         return;
     }
 
+    // Group posts by day
+    const postsByDay = {};
     posts.forEach(post => {
-        const postCard = document.createElement('div');
-        postCard.className = 'post-card';
-        postCard.innerHTML = `
-            <h2>${post.title}</h2>
-            <div class="date">${formatDate(post.date)}</div>
-            <div class="preview">${post.preview}</div>
-        `;
+        if (!postsByDay[post.day]) {
+            postsByDay[post.day] = [];
+        }
+        postsByDay[post.day].push(post);
+    });
 
-        postCard.addEventListener('click', () => displayPost(post));
-        postsContainer.appendChild(postCard);
+    // Display posts grouped by day
+    Object.keys(postsByDay).sort((a, b) => a - b).forEach(day => {
+        const daySection = document.createElement('div');
+        daySection.className = 'day-section';
+        
+        // Add day header
+        const dayHeader = document.createElement('div');
+        dayHeader.className = 'day-header';
+        dayHeader.innerHTML = `<h2>Day ${day}</h2>`;
+        daySection.appendChild(dayHeader);
+
+        // Add posts for this day
+        postsByDay[day].forEach(post => {
+            const postCard = document.createElement('div');
+            postCard.className = 'post-card';
+            postCard.innerHTML = `
+                <h3>${post.title}</h3>
+                <div class="date">${formatDate(post.date)}</div>
+                <div class="preview">${post.preview}</div>
+            `;
+
+            postCard.addEventListener('click', () => displayPost(post));
+            daySection.appendChild(postCard);
+        });
+
+        postsContainer.appendChild(daySection);
     });
 }
 
@@ -83,8 +111,11 @@ async function displayPost(post) {
         const postContent = document.createElement('div');
         postContent.className = 'post-content';
         postContent.innerHTML = `
-            <h1>${post.title}</h1>
-            <div class="date">${formatDate(post.date)}</div>
+            <div class="post-header">
+                <div class="day-label">Day ${post.day}</div>
+                <h1>${post.title}</h1>
+                <div class="date">${formatDate(post.date)}</div>
+            </div>
             ${htmlContent}
             <button onclick="displayPosts()" class="back-button">← Return to News</button>
         `;
