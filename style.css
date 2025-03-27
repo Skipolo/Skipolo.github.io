@@ -21,6 +21,28 @@ body {
     background-color: var(--background-color);
     background-image: url('assets/paper-texture.png');
     background-repeat: repeat;
+    background-size: 360px 360px;
+    min-height: 100vh;
+    position: relative;
+}
+
+/* Add a subtle overlay to improve text readability */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.7);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Ensure content stays above the overlay */
+header, main, footer {
+    position: relative;
+    z-index: 1;
 }
 
 header {
@@ -30,7 +52,6 @@ header {
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     margin-bottom: 2rem;
     border-bottom: 3px solid var(--border-color);
-    position: relative;
 }
 
 header::before {
@@ -85,7 +106,6 @@ main {
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     cursor: pointer;
     border: 1px solid var(--border-color);
-    position: relative;
 }
 
 .post-card::before {
@@ -165,6 +185,8 @@ main {
     border: 1px solid var(--border-color);
     padding: 1rem;
     background: white;
+    position: relative;
+    z-index: 1;
 }
 
 footer {
@@ -209,6 +231,9 @@ footer {
     justify-content: center;
     align-items: center;
     min-height: 200px;
+    background: var(--paper-color);
+    border-radius: 4px;
+    margin: 2rem 0;
 }
 
 .loading::after {
@@ -239,4 +264,43 @@ footer {
     .plotly-graph {
         break-inside: avoid;
     }
+}
+
+/* Back Button */
+.back-button {
+    display: inline-block;
+    margin-top: 2rem;
+    padding: 0.5rem 1rem;
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'Crimson Text', serif;
+    font-size: 1rem;
+    transition: background-color 0.2s ease;
+}
+
+.back-button:hover {
+    background-color: #6b3410;
+}
+
+/* Error Messages */
+.error-message {
+    background-color: #fff3f3;
+    border: 1px solid #ffcdd2;
+    color: #c62828;
+    padding: 1rem;
+    border-radius: 4px;
+    margin: 1rem 0;
+    text-align: center;
+}
+
+.no-posts {
+    text-align: center;
+    padding: 2rem;
+    background: var(--paper-color);
+    border-radius: 4px;
+    color: #666;
+    font-style: italic;
 } 

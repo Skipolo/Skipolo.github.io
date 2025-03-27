@@ -22,7 +22,15 @@ async function loadPosts() {
                 title: 'The Great Census of Skyfall: A Report on Our Nations',
                 date: '2024-03-20',
                 preview: 'A comprehensive census report detailing the population, economic activities, and future projections of the nations within our realm.',
-                content: await fetch('posts/hello-world.md').then(res => res.text())
+                content: await fetch('posts/hello-world.md')
+                    .then(res => {
+                        if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+                        return res.text();
+                    })
+                    .catch(error => {
+                        console.error('Error loading post content:', error);
+                        return '# Error Loading Content\n\nWe apologize, but there was an error loading this article. Please try again later.';
+                    })
             }
             // Add more posts here as needed
         ];
@@ -34,7 +42,7 @@ async function loadPosts() {
         displayPosts();
     } catch (error) {
         console.error('Error loading posts:', error);
-        postsContainer.innerHTML = '<p>Error loading posts. Please try again later.</p>';
+        postsContainer.innerHTML = '<div class="error-message">Error loading posts. Please try again later.</div>';
     }
 }
 
@@ -42,6 +50,11 @@ async function loadPosts() {
 function displayPosts() {
     const postsContainer = document.getElementById('posts-container');
     postsContainer.innerHTML = '';
+
+    if (posts.length === 0) {
+        postsContainer.innerHTML = '<div class="no-posts">No articles available at this time.</div>';
+        return;
+    }
 
     posts.forEach(post => {
         const postCard = document.createElement('div');
@@ -80,27 +93,33 @@ async function displayPost(post) {
         postsContainer.appendChild(postContent);
 
         // Initialize any Plotly charts in the post
-        initializePlotlyCharts(postContent);
+        await initializePlotlyCharts(postContent);
     } catch (error) {
         console.error('Error displaying post:', error);
-        postsContainer.innerHTML = '<p>Error loading post. Please try again later.</p>';
+        postsContainer.innerHTML = '<div class="error-message">Error loading post. Please try again later.</div>';
     }
 }
 
 // Function to initialize Plotly charts
-function initializePlotlyCharts(container) {
+async function initializePlotlyCharts(container) {
     // Find all divs with class 'plotly-graph'
     const plotlyDivs = container.getElementsByClassName('plotly-graph');
     
-    Array.from(plotlyDivs).forEach(div => {
+    for (const div of plotlyDivs) {
         try {
             // Parse the data from the data-plotly attribute
             const plotData = JSON.parse(div.getAttribute('data-plotly'));
-            Plotly.newPlot(div, plotData.data, plotData.layout);
+            
+            // Ensure the div is empty before plotting
+            div.innerHTML = '';
+            
+            // Create the plot
+            await Plotly.newPlot(div, plotData.data, plotData.layout);
         } catch (error) {
             console.error('Error initializing Plotly chart:', error);
+            div.innerHTML = '<div class="error-message">Error loading chart. Please try again later.</div>';
         }
-    });
+    }
 }
 
 // Helper function to format dates

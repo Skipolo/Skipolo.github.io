@@ -10,6 +10,17 @@ A lightweight, modern blog platform that supports interactive data visualization
 - ⚡ Fast loading with no build step
 - 🎨 Clean, modern UI
 
+## Required Assets
+
+Before running the site, you need to:
+
+1. Create an `assets` directory in the root folder
+2. Add a `paper-texture.png` file to the assets directory
+   - This should be a subtle, seamless parchment texture
+   - Recommended size: 400x400 pixels
+   - Format: PNG with transparency
+   - Color: Light beige/cream (#f4f1ea)
+
 ## Setup Instructions
 
 1. **Create a GitHub Repository**
