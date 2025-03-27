@@ -69,9 +69,20 @@ header::before {
     max-width: 800px;
     margin: 0 auto;
     position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    text-align: center;
+    padding: 2rem 0;
+}
+
+.header-content h1 {
+    margin-bottom: 1rem;
+}
+
+.header-content .subtitle {
+    margin-bottom: 0.5rem;
+}
+
+.header-content .motto {
+    margin-bottom: 0;
 }
 
 .header-banner {

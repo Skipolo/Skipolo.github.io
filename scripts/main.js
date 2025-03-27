@@ -24,12 +24,16 @@ function handleHashRoute() {
 
 // Function to load and parse posts
 async function loadPosts() {
+    const postsContainer = document.getElementById('posts-container');
+    postsContainer.innerHTML = '<div class="loading"></div>';
+
     try {
         const response = await fetch('posts/posts.json');
         if (!response.ok) {
             throw new Error('Failed to load posts');
         }
-        posts = await response.json();
+        const data = await response.json();
+        posts = data.posts;
         
         // Sort posts by date in descending order
         posts.sort((a, b) => new Date(b.date) - new Date(a.date));
@@ -47,8 +51,7 @@ async function loadPosts() {
         const sortedDays = Object.keys(postsByDay).sort((a, b) => b - a);
         
         // Display posts grouped by day
-        const container = document.getElementById('posts-container');
-        container.innerHTML = '';
+        postsContainer.innerHTML = '';
         
         sortedDays.forEach(day => {
             const daySection = document.createElement('div');
@@ -74,12 +77,11 @@ async function loadPosts() {
                 daySection.appendChild(postCard);
             });
             
-            container.appendChild(daySection);
+            postsContainer.appendChild(daySection);
         });
     } catch (error) {
         console.error('Error loading posts:', error);
-        document.getElementById('posts-container').innerHTML = 
-            '<div class="error-message">Error loading posts. Please try again later.</div>';
+        postsContainer.innerHTML = '<div class="error-message">Error loading posts. Please try again later.</div>';
     }
 }
 
@@ -89,8 +91,15 @@ async function displayPost(post) {
     container.innerHTML = '<div class="loading"></div>';
 
     try {
+        // Fetch the markdown content
+        const response = await fetch(post.content);
+        if (!response.ok) {
+            throw new Error('Failed to load post content');
+        }
+        const markdownContent = await response.text();
+        
         // Convert markdown to HTML
-        const htmlContent = marked.parse(post.content);
+        const htmlContent = marked.parse(markdownContent);
         
         // Create post content container
         const postContent = document.createElement('div');
