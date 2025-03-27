@@ -4,9 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Dimitte Omnia - The Voice of Resistance</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=2">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <!-- Cache Busting -->
+    <script>
+        // Force reload of assets
+        window.addEventListener('load', function() {
+            if (window.performance) {
+                var perfData = window.performance.timing;
+                var pageLoadTime = perfData.loadEventEnd - perfData.navigationStart;
+                if (pageLoadTime > 1000) { // If page took more than 1 second to load
+                    window.location.reload(true);
+                }
+            }
+        });
+    </script>
 </head>
 <body>
     <header>
@@ -49,7 +62,7 @@
                     <p class="dramatic-text">I have seen images of vines strangling friends, earth fleeting beneath your feet, lives smashing the ground at screaming velocity. Cries for help as I dug tirelessly into the sand before their calls turned to whisper and to dust. I thought it was glory I would earn, but when it was over all that was left was the harrowing memory of a world once gleaming in prosperity returned to the earth.</p>
                     
                     <div class="about-image">
-                        <img src="assets/about1.png?v=1" alt="Vision of Destruction" class="vision-image">
+                        <img src="assets/about1.png?v=2" alt="Vision of Destruction" class="vision-image">
                     </div>
                 </div>
 
@@ -69,7 +82,7 @@
 
                 <div class="author-section">
                     <div class="author-image">
-                        <img src="assets/Skipolo.png?v=1" alt="Skipolo" class="author-portrait">
+                        <img src="assets/Skipolo.png?v=2" alt="Skipolo" class="author-portrait">
                     </div>
                     <div class="author-info">
                         <h2>Skipolo</h2>
