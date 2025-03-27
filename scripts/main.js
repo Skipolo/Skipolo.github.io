@@ -18,7 +18,7 @@ function handleHashRoute() {
             displayPost(post);
         }
     } else {
-        displayPosts();
+        loadPosts();
     }
 }
 
@@ -117,7 +117,7 @@ function handlePostClick(post) {
 function handleBackClick() {
     // Clear the hash from URL
     window.location.hash = '';
-    // Reload the posts
+    // Force a reload of the posts
     loadPosts();
 }
 
@@ -201,14 +201,7 @@ function formatDate(dateString) {
 
 // Handle browser back/forward buttons
 window.addEventListener('popstate', (event) => {
-    if (event.state && event.state.view === 'post') {
-        const post = posts.find(p => p.id === event.state.postId);
-        if (post) {
-            displayPost(post);
-        }
-    } else {
-        displayPosts();
-    }
+    handleHashRoute();
 });
 
 // Handle URL changes
