@@ -134,9 +134,12 @@ header .motto {
 }
 
 main {
-    max-width: 800px;
+    max-width: 1000px;
     margin: 0 auto;
     padding: 0 1rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
 }
 
 /* Day Sections */
@@ -144,10 +147,11 @@ main {
     margin-bottom: 3rem;
     background: var(--paper-color);
     border-radius: 4px;
-    padding: 1rem;
+    padding: 1.5rem;
     box-shadow: 0 2px 4px var(--shadow-color);
     border: 1px solid var(--border-color);
     position: relative;
+    column-span: all;
 }
 
 .day-section::before {
@@ -170,7 +174,7 @@ main {
 .day-header h2 {
     font-family: 'Cinzel', serif;
     color: var(--accent-color);
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     text-transform: uppercase;
     letter-spacing: 2px;
     text-shadow: 1px 1px 2px var(--shadow-color);
@@ -187,6 +191,7 @@ main {
     border: 1px solid var(--border-color);
     position: relative;
     overflow: hidden;
+    break-inside: avoid;
 }
 
 .post-card:last-child {
@@ -212,8 +217,9 @@ main {
     font-family: 'Cinzel', serif;
     color: var(--primary-color);
     margin-bottom: 0.5rem;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     text-shadow: 1px 1px 2px var(--shadow-color);
+    line-height: 1.4;
 }
 
 .post-card::before {
@@ -240,14 +246,16 @@ main {
 
 .post-card .date {
     color: var(--accent-color);
-    font-size: 0.9rem;
-    margin-bottom: 1rem;
+    font-size: 0.85rem;
+    margin-bottom: 0.8rem;
     font-style: italic;
 }
 
 .post-card .preview {
     color: #444;
     margin-bottom: 1rem;
+    font-size: 0.95rem;
+    line-height: 1.5;
 }
 
 .post-content {
@@ -257,6 +265,9 @@ main {
     margin-bottom: 2rem;
     box-shadow: 0 2px 4px var(--shadow-color);
     border: 1px solid var(--border-color);
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .post-header {
@@ -269,38 +280,46 @@ main {
 .post-header h1 {
     font-family: 'Cinzel', serif;
     color: var(--primary-color);
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     margin: 1rem 0;
     text-align: center;
     text-shadow: 1px 1px 2px var(--shadow-color);
+    line-height: 1.3;
 }
 
 .post-body {
-    font-size: 1.1rem;
-    line-height: 1.8;
+    font-size: 1rem;
+    line-height: 1.6;
+    column-count: 2;
+    column-gap: 2rem;
+    text-align: justify;
 }
 
 .post-body h2 {
     font-family: 'Cinzel', serif;
     color: var(--primary-color);
-    font-size: 1.8rem;
-    margin: 2.5rem 0 1rem;
+    font-size: 1.5rem;
+    margin: 2rem 0 1rem;
     text-align: left;
     text-shadow: 1px 1px 2px var(--shadow-color);
+    column-span: all;
 }
 
 .post-body p {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     text-align: justify;
+    font-size: 0.95rem;
 }
 
 .post-body ul, .post-body ol {
-    margin-bottom: 1.5rem;
-    padding-left: 2rem;
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+    column-span: all;
 }
 
 .post-body li {
     margin-bottom: 0.5rem;
+    font-size: 0.95rem;
 }
 
 .post-content img {
@@ -372,6 +391,20 @@ footer {
 }
 
 /* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .post-body {
+        column-count: 1;
+    }
+    
+    main {
+        grid-template-columns: 1fr;
+    }
+    
+    .post-content {
+        padding: 1.5rem;
+    }
+}
+
 @media (max-width: 600px) {
     header {
         padding: 1.5rem;
@@ -395,6 +428,18 @@ footer {
     
     .header-banner {
         display: none;
+    }
+    
+    .post-header h1 {
+        font-size: 1.8rem;
+    }
+    
+    .post-body h2 {
+        font-size: 1.3rem;
+    }
+    
+    .post-card h3 {
+        font-size: 1.1rem;
     }
 }
 
