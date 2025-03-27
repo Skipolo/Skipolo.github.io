@@ -1,10 +1,10 @@
 ---
-title: "The Great Census: A Chronicle of Civilization's Folly"
+title: "Soul Seekers: Westhelm Census"
 date: "March 27, 2025"
 author: "By the Chronicler of Decay"
 ---
 
-# The Great Census: A Chronicle of Civilization's Folly
+# Soul Seekers: Westhelm Census
 
 *By the Chronicler of Decay*
 

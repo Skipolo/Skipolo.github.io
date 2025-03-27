@@ -30,7 +30,7 @@ async function loadPosts() {
     try {
         const response = await fetch('posts/posts.json');
         if (!response.ok) {
-            throw new Error('Failed to load posts');
+            throw new Error(`Failed to load posts: ${response.status} ${response.statusText}`);
         }
         const data = await response.json();
         posts = data.posts;
@@ -52,6 +52,11 @@ async function loadPosts() {
         
         // Display posts grouped by day
         postsContainer.innerHTML = '';
+        
+        if (sortedDays.length === 0) {
+            postsContainer.innerHTML = '<div class="no-posts">No posts available.</div>';
+            return;
+        }
         
         sortedDays.forEach(day => {
             const daySection = document.createElement('div');
@@ -81,7 +86,12 @@ async function loadPosts() {
         });
     } catch (error) {
         console.error('Error loading posts:', error);
-        postsContainer.innerHTML = '<div class="error-message">Error loading posts. Please try again later.</div>';
+        postsContainer.innerHTML = `
+            <div class="error-message">
+                <p>Error loading posts: ${error.message}</p>
+                <p>Please try again later or contact support if the problem persists.</p>
+            </div>
+        `;
     }
 }
 
@@ -109,7 +119,7 @@ async function displayPost(post) {
         // Fetch the markdown content
         const response = await fetch(post.content);
         if (!response.ok) {
-            throw new Error('Failed to load post content');
+            throw new Error(`Failed to load post content: ${response.status} ${response.statusText}`);
         }
         const markdownContent = await response.text();
         
@@ -137,7 +147,13 @@ async function displayPost(post) {
         await initializePlotlyCharts(postContent);
     } catch (error) {
         console.error('Error displaying post:', error);
-        container.innerHTML = '<div class="error-message">Error loading post. Please try again later.</div>';
+        container.innerHTML = `
+            <div class="error-message">
+                <p>Error loading post: ${error.message}</p>
+                <p>Please try again later or contact support if the problem persists.</p>
+            </div>
+            <button class="back-button" onclick="handleBackClick()">Return to News</button>
+        `;
     }
 }
 
