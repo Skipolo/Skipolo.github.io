@@ -117,7 +117,8 @@ function handlePostClick(post) {
 function handleBackClick() {
     // Clear the hash from URL
     window.location.hash = '';
-    displayPosts();
+    // Reload the posts
+    loadPosts();
 }
 
 // Function to display a single post
