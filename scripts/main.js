@@ -47,8 +47,18 @@ async function loadPosts() {
             postsByDay[post.day].push(post);
         });
         
-        // Sort days in descending order
-        const sortedDays = Object.keys(postsByDay).sort((a, b) => b - a);
+        // Sort days in descending order, handling both numeric and string values
+        const sortedDays = Object.keys(postsByDay).sort((a, b) => {
+            // If both are numbers, sort numerically
+            if (!isNaN(a) && !isNaN(b)) {
+                return b - a;
+            }
+            // If one is a number and one is a string, numbers come first
+            if (!isNaN(a) && isNaN(b)) return -1;
+            if (isNaN(a) && !isNaN(b)) return 1;
+            // If both are strings, sort alphabetically
+            return b.localeCompare(a);
+        });
         
         // Display posts grouped by day
         postsContainer.innerHTML = '';
@@ -64,7 +74,7 @@ async function loadPosts() {
             
             const dayHeader = document.createElement('div');
             dayHeader.className = 'day-header';
-            dayHeader.innerHTML = `<h2>Day ${day}</h2>`;
+            dayHeader.innerHTML = `<h2>${day}</h2>`;
             daySection.appendChild(dayHeader);
             
             postsByDay[day].forEach(post => {
@@ -117,7 +127,7 @@ async function displayPost(post) {
 
     try {
         // Fetch the markdown content
-        const response = await fetch(post.content);
+        const response = await fetch('posts/' + post.content);
         if (!response.ok) {
             throw new Error(`Failed to load post content: ${response.status} ${response.statusText}`);
         }
