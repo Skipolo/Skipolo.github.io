@@ -24,116 +24,78 @@ function handleHashRoute() {
 
 // Function to load and parse posts
 async function loadPosts() {
-    const postsContainer = document.getElementById('posts-container');
-    postsContainer.innerHTML = '<div class="loading"></div>';
-
     try {
-        // In a real implementation, you would fetch this from a JSON file
-        // For now, we'll use a static array
-        posts = [
-            {
-                id: 'census-report',
-                title: 'The Great Census of Skyfall: A Report on Our Nations',
-                date: '2024-03-20',
-                day: 1,
-                preview: 'A comprehensive census report detailing the population, economic activities, and future projections of the nations within our realm.',
-                content: await fetch('posts/hello-world.md')
-                    .then(res => {
-                        if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
-                        return res.text();
-                    })
-                    .catch(error => {
-                        console.error('Error loading post content:', error);
-                        return '# Error Loading Content\n\nWe apologize, but there was an error loading this article. Please try again later.';
-                    })
-            }
-            // Add more posts here as needed
-        ];
-
-        // Sort posts by day and date
-        posts.sort((a, b) => {
-            if (a.day !== b.day) return a.day - b.day;
-            return new Date(a.date) - new Date(b.date);
-        });
-
-        // Check if we're on a post page
-        const path = window.location.pathname;
-        const postId = path.split('/').pop();
-        
-        if (postId && postId !== 'index.html') {
-            const post = posts.find(p => p.id === postId);
-            if (post) {
-                displayPost(post);
-            } else {
-                displayPosts();
-            }
-        } else {
-            displayPosts();
+        const response = await fetch('posts/posts.json');
+        if (!response.ok) {
+            throw new Error('Failed to load posts');
         }
+        posts = await response.json();
+        
+        // Sort posts by date in descending order
+        posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+        
+        // Group posts by day
+        const postsByDay = {};
+        posts.forEach(post => {
+            if (!postsByDay[post.day]) {
+                postsByDay[post.day] = [];
+            }
+            postsByDay[post.day].push(post);
+        });
+        
+        // Sort days in descending order
+        const sortedDays = Object.keys(postsByDay).sort((a, b) => b - a);
+        
+        // Display posts grouped by day
+        const container = document.getElementById('posts-container');
+        container.innerHTML = '';
+        
+        sortedDays.forEach(day => {
+            const daySection = document.createElement('div');
+            daySection.className = 'day-section';
+            
+            const dayHeader = document.createElement('div');
+            dayHeader.className = 'day-header';
+            dayHeader.innerHTML = `<h2>Day ${day}</h2>`;
+            daySection.appendChild(dayHeader);
+            
+            postsByDay[day].forEach(post => {
+                const postCard = document.createElement('div');
+                postCard.className = 'post-card';
+                postCard.innerHTML = `
+                    <h3>${post.title}</h3>
+                    <p class="date">${post.date}</p>
+                    <p class="preview">${post.preview}</p>
+                `;
+                
+                postCard.addEventListener('click', () => {
+                    handlePostClick(post);
+                });
+                daySection.appendChild(postCard);
+            });
+            
+            container.appendChild(daySection);
+        });
     } catch (error) {
         console.error('Error loading posts:', error);
-        postsContainer.innerHTML = '<div class="error-message">Error loading posts. Please try again later.</div>';
+        document.getElementById('posts-container').innerHTML = 
+            '<div class="error-message">Error loading posts. Please try again later.</div>';
     }
-}
-
-// Function to display posts
-function displayPosts() {
-    const postsContainer = document.getElementById('posts-container');
-    postsContainer.innerHTML = '';
-
-    if (posts.length === 0) {
-        postsContainer.innerHTML = '<div class="no-posts">No articles available at this time.</div>';
-        return;
-    }
-
-    // Update URL to home
-    window.history.pushState({ view: 'home' }, '', '/');
-
-    // Group posts by day
-    const postsByDay = {};
-    posts.forEach(post => {
-        if (!postsByDay[post.day]) {
-            postsByDay[post.day] = [];
-        }
-        postsByDay[post.day].push(post);
-    });
-
-    // Display posts grouped by day
-    Object.keys(postsByDay).sort((a, b) => a - b).forEach(day => {
-        const daySection = document.createElement('div');
-        daySection.className = 'day-section';
-        
-        // Add day header
-        const dayHeader = document.createElement('div');
-        dayHeader.className = 'day-header';
-        dayHeader.innerHTML = `<h2>Day ${day}</h2>`;
-        daySection.appendChild(dayHeader);
-
-        // Add posts for this day
-        postsByDay[day].forEach(post => {
-            const postCard = document.createElement('div');
-            postCard.className = 'post-card';
-            postCard.innerHTML = `
-                <h3>${post.title}</h3>
-                <div class="date">${formatDate(post.date)}</div>
-                <div class="preview">${post.preview}</div>
-            `;
-
-            postCard.addEventListener('click', () => {
-                handlePostClick(post);
-            });
-            daySection.appendChild(postCard);
-        });
-
-        postsContainer.appendChild(daySection);
-    });
 }
 
 // Function to display a single post
 async function displayPost(post) {
     const container = document.getElementById('posts-container');
-    container.innerHTML = `
-        <div class="post-content">
+    container.innerHTML = '<div class="loading"></div>';
+
+    try {
+        // Convert markdown to HTML
+        const htmlContent = marked.parse(post.content);
+        
+        // Create post content container
+        const postContent = document.createElement('div');
+        postContent.className = 'post-content';
+        postContent.innerHTML = `
             <div class="post-header">
                 <h1>${post.title}</h1>
                 <p class="date">${post.date}</p>
@@ -142,8 +104,17 @@ async function displayPost(post) {
                 ${htmlContent.replace(/<h1[^>]*>.*?<\/h1>/, '')}
             </div>
             <button class="back-button" onclick="handleBackClick()">Return to News</button>
-        </div>
-    `;
+        `;
+
+        container.innerHTML = '';
+        container.appendChild(postContent);
+
+        // Initialize any Plotly charts in the post
+        await initializePlotlyCharts(postContent);
+    } catch (error) {
+        console.error('Error displaying post:', error);
+        container.innerHTML = '<div class="error-message">Error loading post. Please try again later.</div>';
+    }
 }
 
 // Function to handle back button click
