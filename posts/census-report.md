@@ -6,7 +6,57 @@
 
 This is a census of the announced factions of Westhelm Skyfall.
 
-Below you can find information on all established groups.
+Of the total 230 players in Soul Seekers, 194 are affiliated with established groups while 36 remain unaffiliated.
+
+<div class="plotly-graph" data-plotly='{
+    "data": [
+        {
+            "values": [194, 36],
+            "labels": ["Affiliated", "Unaffiliated"],
+            "type": "pie",
+            "name": "Membership Overview",
+            "marker": {
+                "colors": ["#8b4513", "#d2691e"]
+            }
+        }
+    ],
+    "layout": {
+        "title": "Player Affiliation Status",
+        "showlegend": true,
+        "paper_bgcolor": "rgba(0,0,0,0)",
+        "plot_bgcolor": "rgba(0,0,0,0)",
+        "font": {
+            "family": "Crimson Text, serif"
+        }
+    }
+}'></div>
+
+Among the 194 affiliated players, 126 belong to nation-states while 68 are members of various organizations.
+
+<div class="plotly-graph" data-plotly='{
+    "data": [
+        {
+            "values": [126, 68],
+            "labels": ["Nation-States", "Organizations"],
+            "type": "pie",
+            "name": "Membership Distribution",
+            "marker": {
+                "colors": ["#556b2f", "#8fbc8f"]
+            }
+        }
+    ],
+    "layout": {
+        "title": "Nation-States vs Organizations Membership",
+        "showlegend": true,
+        "paper_bgcolor": "rgba(0,0,0,0)",
+        "plot_bgcolor": "rgba(0,0,0,0)",
+        "font": {
+            "family": "Crimson Text, serif"
+        }
+    }
+}'></div>
+
+Below you can find detailed information on all established groups.
 
 ## Nation-States
 
@@ -200,7 +250,7 @@ Below you can find information on all established groups.
 </div>
 </div>
 
-### Population Distribution
+## Population Distribution by Faction
 
 <div class="plotly-graph" data-plotly='{
     "data": [
