@@ -862,4 +862,64 @@ footer {
     margin: 0;
 }
 
-/* Remove all player-related styles */ 
+/* Remove all player-related styles */
+
+/* Faction Cards */
+.faction-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.faction-card {
+    background: var(--paper-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 4px var(--shadow-color);
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+}
+
+.faction-banner {
+    width: 100px;
+    height: auto;
+    object-fit: contain;
+    border: 2px solid var(--border-color);
+    border-radius: 4px;
+}
+
+.faction-info {
+    flex-grow: 1;
+}
+
+.faction-info h3 {
+    font-family: 'Cinzel', serif;
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+}
+
+.faction-info p {
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+.faction-info strong {
+    color: var(--accent-color);
+    font-family: 'Cinzel', serif;
+}
+
+@media (max-width: 600px) {
+    .faction-card {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .faction-banner {
+        margin: 0 auto;
+    }
+} 

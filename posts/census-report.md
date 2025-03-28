@@ -4,26 +4,173 @@
 
 ## Overview
 
-In our ongoing mission to document the folly of civilization, we present this comprehensive census report detailing the population, economic activities, and future projections of the nations within our realm. The data presented here serves as both a warning and a testament to the relentless march of progress that threatens to awaken the Deep Gods.
+This is a census of the announced factions of Westhelm Skyfall.
 
-## Population Distribution
+Below you can find information on all established groups.
 
-Our latest census reveals a concerning trend in population growth across the major nations:
+## Nation-States
+
+<div class="faction-section">
+    <div class="faction-card">
+        <img src="assets/banners/serenia.png" alt="Serenia Banner" class="faction-banner">
+        <div class="faction-info">
+            <h3>Serenia</h3>
+            <p><strong>Type:</strong> Nation-state</p>
+            <p><strong>Members:</strong> 40</p>
+            <p><strong>Leader:</strong> Jophiel</p>
+        </div>
+    </div>
+
+    <div class="faction-card">
+        <img src="assets/banners/newhelm.png" alt="Newhelm Banner" class="faction-banner">
+        <div class="faction-info">
+            <h3>Newhelm</h3>
+            <p><strong>Type:</strong> Nation-state</p>
+            <p><strong>Members:</strong> 38</p>
+            <p><strong>Leader:</strong> MyDucksOnQuack</p>
+        </div>
+    </div>
+
+    <div class="faction-card">
+        <img src="assets/banners/valkyries.png" alt="Valkyries Banner" class="faction-banner">
+        <div class="faction-info">
+            <h3>Valkyries</h3>
+            <p><strong>Type:</strong> Nation-state</p>
+            <p><strong>Members:</strong> 34</p>
+            <p><strong>Official Leader:</strong> Ari</p>
+            <p><strong>Acting Leader:</strong> Wolfram <em>(Dimitte Omnia opinion)</em></p>
+        </div>
+    </div>
+
+    <div class="faction-card">
+        <img src="assets/banners/arenia.png" alt="Arenia Banner" class="faction-banner">
+        <div class="faction-info">
+            <h3>Arenia</h3>
+            <p><strong>Type:</strong> Nation-state</p>
+            <p><strong>Members:</strong> 14</p>
+            <p><strong>Leader:</strong> MV_Cuber</p>
+        </div>
+    </div>
+</div>
+
+## Organizations
+
+<div class="faction-section">
+    <div class="faction-card">
+        <img src="assets/banners/toadstool.png" alt="Toadstool Tavern Banner" class="faction-banner">
+        <div class="faction-info">
+            <h3>Toadstool Tavern</h3>
+            <p><strong>Type:</strong> Business</p>
+            <p><strong>Members:</strong> 15</p>
+            <p><strong>Leader:</strong> Izzy_The_Tiger</p>
+        </div>
+    </div>
+
+    <div class="faction-card">
+        <img src="assets/banners/possum.png" alt="Possum Lodge Banner" class="faction-banner">
+        <div class="faction-info">
+            <h3>Possum Lodge</h3>
+            <p><strong>Type:</strong> Guild</p>
+            <p><strong>Members:</strong> 13</p>
+            <p><strong>Leader:</strong> Wilkman</p>
+        </div>
+    </div>
+
+    <div class="faction-card">
+        <img src="assets/banners/shai.png" alt="The Shai Banner" class="faction-banner">
+        <div class="faction-info">
+            <h3>The Shai</h3>
+            <p><strong>Type:</strong> Religion</p>
+            <p><strong>Members:</strong> 8</p>
+            <p><strong>Leader:</strong> VirentTarot</p>
+        </div>
+    </div>
+
+    <div class="faction-card">
+        <img src="assets/banners/knights.png" alt="Knights Remplar Banner" class="faction-banner">
+        <div class="faction-info">
+            <h3>Knights Remplar</h3>
+            <p><strong>Type:</strong> Charity</p>
+            <p><strong>Members:</strong> 7</p>
+            <p><strong>Leader:</strong> KB</p>
+        </div>
+    </div>
+
+    <div class="faction-card">
+        <img src="assets/banners/souls.png" alt="Seeking Souls Banner" class="faction-banner">
+        <div class="faction-info">
+            <h3>Seeking Souls</h3>
+            <p><strong>Type:</strong> Surveyors</p>
+            <p><strong>Members:</strong> 5</p>
+            <p><strong>Leader:</strong> 5Doodle</p>
+        </div>
+    </div>
+
+    <div class="faction-card">
+        <img src="assets/banners/skylark.png" alt="Skylark Dailies Banner" class="faction-banner">
+        <div class="faction-info">
+            <h3>Skylark Dailies</h3>
+            <p><strong>Type:</strong> News Agency</p>
+            <p><strong>Members:</strong> 2</p>
+            <p><strong>Leader:</strong> Mizzen</p>
+        </div>
+    </div>
+
+    <div class="faction-card">
+        <img src="assets/banners/helmside.png" alt="Helmside Edition Banner" class="faction-banner">
+        <div class="faction-info">
+            <h3>Helmside Edition</h3>
+            <p><strong>Type:</strong> News Agency</p>
+            <p><strong>Members:</strong> 1</p>
+            <p><strong>Leader:</strong> rikity</p>
+        </div>
+    </div>
+
+    <div class="faction-card">
+        <img src="assets/banners/dimitte.png" alt="Dimitte Omnia Banner" class="faction-banner">
+        <div class="faction-info">
+            <h3>Dimitte Omnia</h3>
+            <p><strong>Type:</strong> News Agency</p>
+            <p><strong>Members:</strong> 1</p>
+            <p><strong>Leader:</strong> Skipolo</p>
+        </div>
+    </div>
+
+    <div class="faction-card">
+        <img src="assets/banners/ulritch.png" alt="Frederick Ulritch Banner" class="faction-banner">
+        <div class="faction-info">
+            <h3>Frederick Ulritch</h3>
+            <p><strong>Type:</strong> Detective Agency</p>
+            <p><strong>Members:</strong> 1</p>
+            <p><strong>Leader:</strong> Myasnik</p>
+        </div>
+    </div>
+
+    <div class="faction-card">
+        <img src="assets/banners/bastards.png" alt="The Gentleman Bastards Banner" class="faction-banner">
+        <div class="faction-info">
+            <h3>The Gentleman Bastards</h3>
+            <p><strong>Type:</strong> lolcow</p>
+            <p><strong>Members:</strong> 1</p>
+            <p><strong>Leader:</strong> WizzyWhigg</p>
+        </div>
+    </div>
+</div>
 
 <div class="plotly-graph" data-plotly='{
     "data": [
         {
-            "values": [40, 25, 20, 15],
-            "labels": ["Mining", "Agriculture", "Trade", "Crafting"],
+            "values": [40, 38, 34, 14, 15, 13, 8, 7, 5, 2, 1, 1, 1, 1],
+            "labels": ["Serenia", "Newhelm", "Valkyries", "Arenia", "Toadstool Tavern", "Possum Lodge", "The Shai", "Knights Remplar", "Seeking Souls", "Skylark Dailies", "Helmside Edition", "Dimitte Omnia", "Frederick Ulritch", "The Gentleman Bastards"],
             "type": "pie",
-            "name": "Economic Activities",
+            "name": "Member Distribution",
             "marker": {
-                "colors": ["#8b4513", "#a0522d", "#cd853f", "#deb887"]
+                "colors": ["#8b4513", "#a0522d", "#cd853f", "#deb887", "#d2691e", "#b8860b", "#bc8f8f", "#d2b48c", "#f4a460", "#daa520", "#cd853f", "#d2691e", "#8b4513", "#a0522d"]
             }
         }
     ],
     "layout": {
-        "title": "Distribution of Environmental Impact",
+        "title": "Population Distribution by Faction",
         "showlegend": true,
         "paper_bgcolor": "rgba(0,0,0,0)",
         "plot_bgcolor": "rgba(0,0,0,0)",
