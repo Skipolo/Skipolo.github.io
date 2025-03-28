@@ -10,152 +10,80 @@ Below you can find information on all established groups.
 
 ## Nation-States
 
-<div class="faction-section">
-    <div class="faction-card">
-        <img src="assets/banners/serenia.png" alt="Serenia Banner" class="faction-banner">
-        <div class="faction-info">
-            <h3>Serenia</h3>
-            <p><strong>Type:</strong> Nation-state</p>
-            <p><strong>Members:</strong> 40</p>
-            <p><strong>Leader:</strong> Jophiel</p>
-        </div>
-    </div>
+### Serenia
+- **Type:** Nation-state
+- **Members:** 40
+- **Leader:** Jophiel
 
-    <div class="faction-card">
-        <img src="assets/banners/newhelm.png" alt="Newhelm Banner" class="faction-banner">
-        <div class="faction-info">
-            <h3>Newhelm</h3>
-            <p><strong>Type:</strong> Nation-state</p>
-            <p><strong>Members:</strong> 38</p>
-            <p><strong>Leader:</strong> MyDucksOnQuack</p>
-        </div>
-    </div>
+### Newhelm
+- **Type:** Nation-state
+- **Members:** 38
+- **Leader:** MyDucksOnQuack
 
-    <div class="faction-card">
-        <img src="assets/banners/valkyries.png" alt="Valkyries Banner" class="faction-banner">
-        <div class="faction-info">
-            <h3>Valkyries</h3>
-            <p><strong>Type:</strong> Nation-state</p>
-            <p><strong>Members:</strong> 34</p>
-            <p><strong>Official Leader:</strong> Ari</p>
-            <p><strong>Acting Leader:</strong> Wolfram <em>(Dimitte Omnia opinion)</em></p>
-        </div>
-    </div>
+### Valkyries
+- **Type:** Nation-state
+- **Members:** 34
+- **Official Leader:** Ari
+- **Acting Leader:** Wolfram *(Dimitte Omnia opinion)*
 
-    <div class="faction-card">
-        <img src="assets/banners/arenia.png" alt="Arenia Banner" class="faction-banner">
-        <div class="faction-info">
-            <h3>Arenia</h3>
-            <p><strong>Type:</strong> Nation-state</p>
-            <p><strong>Members:</strong> 14</p>
-            <p><strong>Leader:</strong> MV_Cuber</p>
-        </div>
-    </div>
-</div>
+### Arenia
+- **Type:** Nation-state
+- **Members:** 14
+- **Leader:** MV_Cuber
 
 ## Organizations
 
-<div class="faction-section">
-    <div class="faction-card">
-        <img src="assets/banners/toadstool.png" alt="Toadstool Tavern Banner" class="faction-banner">
-        <div class="faction-info">
-            <h3>Toadstool Tavern</h3>
-            <p><strong>Type:</strong> Business</p>
-            <p><strong>Members:</strong> 15</p>
-            <p><strong>Leader:</strong> Izzy_The_Tiger</p>
-        </div>
-    </div>
+### Toadstool Tavern
+- **Type:** Business
+- **Members:** 15
+- **Leader:** Izzy_The_Tiger
 
-    <div class="faction-card">
-        <img src="assets/banners/possum.png" alt="Possum Lodge Banner" class="faction-banner">
-        <div class="faction-info">
-            <h3>Possum Lodge</h3>
-            <p><strong>Type:</strong> Guild</p>
-            <p><strong>Members:</strong> 13</p>
-            <p><strong>Leader:</strong> Wilkman</p>
-        </div>
-    </div>
+### Possum Lodge
+- **Type:** Guild
+- **Members:** 13
+- **Leader:** Wilkman
 
-    <div class="faction-card">
-        <img src="assets/banners/shai.png" alt="The Shai Banner" class="faction-banner">
-        <div class="faction-info">
-            <h3>The Shai</h3>
-            <p><strong>Type:</strong> Religion</p>
-            <p><strong>Members:</strong> 8</p>
-            <p><strong>Leader:</strong> VirentTarot</p>
-        </div>
-    </div>
+### The Shai
+- **Type:** Religion
+- **Members:** 8
+- **Leader:** VirentTarot
 
-    <div class="faction-card">
-        <img src="assets/banners/knights.png" alt="Knights Remplar Banner" class="faction-banner">
-        <div class="faction-info">
-            <h3>Knights Remplar</h3>
-            <p><strong>Type:</strong> Charity</p>
-            <p><strong>Members:</strong> 7</p>
-            <p><strong>Leader:</strong> KB</p>
-        </div>
-    </div>
+### Knights Remplar
+- **Type:** Charity
+- **Members:** 7
+- **Leader:** KB
 
-    <div class="faction-card">
-        <img src="assets/banners/souls.png" alt="Seeking Souls Banner" class="faction-banner">
-        <div class="faction-info">
-            <h3>Seeking Souls</h3>
-            <p><strong>Type:</strong> Surveyors</p>
-            <p><strong>Members:</strong> 5</p>
-            <p><strong>Leader:</strong> 5Doodle</p>
-        </div>
-    </div>
+### Seeking Souls
+- **Type:** Surveyors
+- **Members:** 5
+- **Leader:** 5Doodle
 
-    <div class="faction-card">
-        <img src="assets/banners/skylark.png" alt="Skylark Dailies Banner" class="faction-banner">
-        <div class="faction-info">
-            <h3>Skylark Dailies</h3>
-            <p><strong>Type:</strong> News Agency</p>
-            <p><strong>Members:</strong> 2</p>
-            <p><strong>Leader:</strong> Mizzen</p>
-        </div>
-    </div>
+### Skylark Dailies
+- **Type:** News Agency
+- **Members:** 2
+- **Leader:** Mizzen
 
-    <div class="faction-card">
-        <img src="assets/banners/helmside.png" alt="Helmside Edition Banner" class="faction-banner">
-        <div class="faction-info">
-            <h3>Helmside Edition</h3>
-            <p><strong>Type:</strong> News Agency</p>
-            <p><strong>Members:</strong> 1</p>
-            <p><strong>Leader:</strong> rikity</p>
-        </div>
-    </div>
+### Helmside Edition
+- **Type:** News Agency
+- **Members:** 1
+- **Leader:** rikity
 
-    <div class="faction-card">
-        <img src="assets/banners/dimitte.png" alt="Dimitte Omnia Banner" class="faction-banner">
-        <div class="faction-info">
-            <h3>Dimitte Omnia</h3>
-            <p><strong>Type:</strong> News Agency</p>
-            <p><strong>Members:</strong> 1</p>
-            <p><strong>Leader:</strong> Skipolo</p>
-        </div>
-    </div>
+### Dimitte Omnia
+- **Type:** News Agency
+- **Members:** 1
+- **Leader:** Skipolo
 
-    <div class="faction-card">
-        <img src="assets/banners/ulritch.png" alt="Frederick Ulritch Banner" class="faction-banner">
-        <div class="faction-info">
-            <h3>Frederick Ulritch</h3>
-            <p><strong>Type:</strong> Detective Agency</p>
-            <p><strong>Members:</strong> 1</p>
-            <p><strong>Leader:</strong> Myasnik</p>
-        </div>
-    </div>
+### Frederick Ulritch
+- **Type:** Detective Agency
+- **Members:** 1
+- **Leader:** Myasnik
 
-    <div class="faction-card">
-        <img src="assets/banners/bastards.png" alt="The Gentleman Bastards Banner" class="faction-banner">
-        <div class="faction-info">
-            <h3>The Gentleman Bastards</h3>
-            <p><strong>Type:</strong> lolcow</p>
-            <p><strong>Members:</strong> 1</p>
-            <p><strong>Leader:</strong> WizzyWhigg</p>
-        </div>
-    </div>
-</div>
+### The Gentleman Bastards
+- **Type:** lolcow
+- **Members:** 1
+- **Leader:** WizzyWhigg
+
+## Population Distribution
 
 <div class="plotly-graph" data-plotly='{
     "data": [
