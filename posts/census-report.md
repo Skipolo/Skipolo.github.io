@@ -101,6 +101,7 @@ Below you can find information on all established groups.
 ### Knights Remplar
 - **Type:** Charity
 - **Members:** 7
+- **Leader:** KB
 
 </div>
 </div>

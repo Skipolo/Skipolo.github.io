@@ -290,8 +290,6 @@ main {
 .post-body {
     font-size: 1rem;
     line-height: 1.6;
-    column-count: 2;
-    column-gap: 2rem;
     text-align: justify;
 }
 
@@ -967,20 +965,21 @@ footer {
     display: flex;
     align-items: flex-start;
     gap: 2rem;
-    margin-bottom: 2rem;
-    max-width: 100%;
+    margin-bottom: 3rem;
+    width: 100%;
+    break-inside: avoid;
 }
 
 .faction-info {
     flex: 1;
-    min-width: 0; /* Prevents text from pushing banner off screen */
+    min-width: 0;
 }
 
 .faction-banner {
     width: 100px;
     height: 200px;
     object-fit: contain;
-    flex-shrink: 0; /* Prevents banner from shrinking */
+    flex-shrink: 0;
     border: 1px solid var(--border-color);
     border-radius: 4px;
     box-shadow: 0 2px 4px var(--shadow-color);
