@@ -12,10 +12,13 @@ let posts = [];
 function handleHashRoute() {
     const hash = window.location.hash;
     if (hash) {
-        const postId = hash.replace('#post-', '');
+        // Extract postId, handling both #post-id and #id formats
+        const postId = hash.replace('#post-', '').replace('#', '');
         const post = posts.find(p => p.id === postId);
         if (post) {
             displayPost(post);
+        } else {
+            loadPosts(); // Fallback to main page if post not found
         }
     } else {
         loadPosts();
