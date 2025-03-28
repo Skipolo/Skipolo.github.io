@@ -960,4 +960,37 @@ footer {
     margin: 3rem 0 2rem;
     padding-bottom: 1rem;
     border-bottom: 2px solid var(--border-color);
+}
+
+/* Faction Styles */
+.faction-entry {
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.faction-info {
+    flex: 1;
+}
+
+.faction-banner {
+    width: 100px;
+    height: 200px;
+    object-fit: contain;
+    border: 2px solid var(--border-color);
+    border-radius: 4px;
+    box-shadow: 0 2px 4px var(--shadow-color);
+}
+
+@media (max-width: 600px) {
+    .faction-entry {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .faction-banner {
+        margin-top: 1rem;
+    }
 } 

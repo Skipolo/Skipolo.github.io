@@ -10,21 +10,42 @@ Below you can find information on all established groups.
 
 ## Nation-States
 
+<div class="faction-entry">
+<div class="faction-info">
+
 ### Serenia
 - **Type:** Nation-state
 - **Members:** 40
 - **Leader:** Jophiel
+
+</div>
+<img src="assets/banners/serenia.png" alt="Serenia Banner" class="faction-banner">
+</div>
+
+<div class="faction-entry">
+<div class="faction-info">
 
 ### Newhelm
 - **Type:** Nation-state
 - **Members:** 38
 - **Leader:** MyDucksOnQuack
 
+</div>
+<img src="assets/banners/newhelm.png" alt="Newhelm Banner" class="faction-banner">
+</div>
+
+<div class="faction-entry">
+<div class="faction-info">
+
 ### Valkyries
 - **Type:** Nation-state
 - **Members:** 34
 - **Official Leader:** Ari
 - **Acting Leader:** Wolfram *(Dimitte Omnia opinion)*
+
+</div>
+<img src="assets/banners/valkyries.png" alt="Valkyries Banner" class="faction-banner">
+</div>
 
 ### Arenia
 - **Type:** Nation-state
@@ -33,15 +54,29 @@ Below you can find information on all established groups.
 
 ## Organizations
 
+<div class="faction-entry">
+<div class="faction-info">
+
 ### Toadstool Tavern
 - **Type:** Business
 - **Members:** 15
 - **Leader:** Izzy_The_Tiger
 
+</div>
+<img src="assets/banners/toadstool_tavern.png" alt="Toadstool Tavern Banner" class="faction-banner">
+</div>
+
+<div class="faction-entry">
+<div class="faction-info">
+
 ### Possum Lodge
 - **Type:** Guild
 - **Members:** 13
 - **Leader:** Wilkman
+
+</div>
+<img src="assets/banners/possum_lodge.png" alt="Possum Lodge Banner" class="faction-banner">
+</div>
 
 ### The Shai
 - **Type:** Religion
@@ -100,54 +135,6 @@ Below you can find information on all established groups.
     "layout": {
         "title": "Population Distribution by Faction",
         "showlegend": true,
-        "paper_bgcolor": "rgba(0,0,0,0)",
-        "plot_bgcolor": "rgba(0,0,0,0)",
-        "font": {
-            "family": "Crimson Text, serif"
-        }
-    }
-}'></div>
-
-## Notable Observations
-
-1. **Westhelm** stands as the most populous nation, their numbers a testament to their relentless expansion and disregard for natural balance.
-2. **Eastmark** shows remarkable growth in agricultural exploitation, transforming once-wild lands into ordered rows of cultivated destruction.
-3. **Northhaven** maintains a strong focus on resource extraction, their mines growing deeper as their understanding grows shallower.
-4. **Southport** has emerged as a major trading hub, facilitating the spread of civilization's influence across the realm.
-5. **Centralia** continues to develop their unique blend of all destructive activities, a microcosm of the greater folly.
-
-## Future Projections
-
-Based on current patterns of destruction and historical precedents, we project continued expansion of their influence. The following chart shows our projections for the next five years:
-
-<div class="plotly-graph" data-plotly='{
-    "data": [
-        {
-            "x": [2025, 2026, 2027, 2028, 2029],
-            "y": [100, 120, 145, 175, 210],
-            "type": "scatter",
-            "mode": "lines+markers",
-            "name": "Projected Growth",
-            "line": {
-                "color": "#8b4513",
-                "width": 2
-            },
-            "marker": {
-                "color": "#8b4513",
-                "size": 8
-            }
-        }
-    ],
-    "layout": {
-        "title": "Projected Environmental Impact",
-        "xaxis": {
-            "title": "Year",
-            "showgrid": false
-        },
-        "yaxis": {
-            "title": "Impact Index",
-            "showgrid": false
-        },
         "paper_bgcolor": "rgba(0,0,0,0)",
         "plot_bgcolor": "rgba(0,0,0,0)",
         "font": {
