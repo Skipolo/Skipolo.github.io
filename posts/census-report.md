@@ -17,6 +17,7 @@ Below you can find information on all established groups.
 - **Type:** Nation-state
 - **Members:** 40
 - **Leader:** Jophiel
+- **Notes:** Serenia is the largest group in the server. Their belief system involves a desire to ascend to angelhood, seemingly by engaging in strange behavior.
 
 </div>
 <img src="assets/banners/serenia.png" alt="Serenia Banner" class="faction-banner">
@@ -29,6 +30,7 @@ Below you can find information on all established groups.
 - **Type:** Nation-state
 - **Members:** 38
 - **Leader:** MyDucksOnQuack
+- **Notes:** Newhelm is the self-described successor to Westhelm as the newest manifestation of the Cardinal peoples. Cardinal states are known for being stable with good diplomacy, but they have an established hierarchy and a tendency for imperialism.
 
 </div>
 <img src="assets/banners/newhelm.png" alt="Newhelm Banner" class="faction-banner">
@@ -42,6 +44,7 @@ Below you can find information on all established groups.
 - **Members:** 34
 - **Official Leader:** Ari
 - **Acting Leader:** Wolfram *(Dimitte Omnia opinion)*
+- **Notes:** The Valkyries are a loyal group of sky-sailors and have a high concentration of skilled players.
 
 </div>
 <img src="assets/banners/valkyries.png" alt="Valkyries Banner" class="faction-banner">
@@ -54,6 +57,7 @@ Below you can find information on all established groups.
 - **Type:** Nation-state
 - **Members:** 14
 - **Leader:** MV_Cuber
+- **Notes:** Arenia is a small nation on the up-and-comeup.
 
 </div>
 </div>
@@ -104,6 +108,31 @@ Below you can find information on all established groups.
 - **Leader:** KB
 
 </div>
+<img src="assets/banners/knights_remplar.png" alt="Knights Remplar Banner" class="faction-banner">
+</div>
+
+<div class="faction-entry">
+<div class="faction-info">
+
+### Dimitte Omnia
+- **Type:** News Organization
+- **Members:** 1
+- **Leader:** Skipolo
+
+</div>
+<img src="assets/banners/banner.png" alt="Dimitte Omnia Banner" class="faction-banner">
+</div>
+
+<div class="faction-entry">
+<div class="faction-info">
+
+### Globetrotters
+- **Type:** Private Club
+- **Members:** 14
+- **Leader:** Procrastination
+- **Notes:** Accused of conspiring to siphon resources from other nations. No evidence has been shared with Dimitte Omnia of this.
+
+</div>
 </div>
 
 ### Seeking Souls
@@ -121,11 +150,6 @@ Below you can find information on all established groups.
 - **Members:** 1
 - **Leader:** rikity
 
-### Dimitte Omnia
-- **Type:** News Agency
-- **Members:** 1
-- **Leader:** Skipolo
-
 ### Frederick Ulritch
 - **Type:** Detective Agency
 - **Members:** 1
@@ -141,12 +165,12 @@ Below you can find information on all established groups.
 <div class="plotly-graph" data-plotly='{
     "data": [
         {
-            "values": [40, 38, 34, 14, 15, 13, 8, 7, 5, 2, 1, 1, 1, 1],
-            "labels": ["Serenia", "Newhelm", "Valkyries", "Arenia", "Toadstool Tavern", "Possum Lodge", "The Shai", "Knights Remplar", "Seeking Souls", "Skylark Dailies", "Helmside Edition", "Dimitte Omnia", "Frederick Ulritch", "The Gentleman Bastards"],
+            "values": [40, 38, 34, 14, 15, 13, 8, 7, 5, 2, 1, 1, 1, 1, 14],
+            "labels": ["Serenia", "Newhelm", "Valkyries", "Arenia", "Toadstool Tavern", "Possum Lodge", "The Shai", "Knights Remplar", "Seeking Souls", "Skylark Dailies", "Helmside Edition", "Dimitte Omnia", "Frederick Ulritch", "The Gentleman Bastards", "Globetrotters"],
             "type": "pie",
             "name": "Member Distribution",
             "marker": {
-                "colors": ["#8b4513", "#a0522d", "#cd853f", "#deb887", "#d2691e", "#b8860b", "#bc8f8f", "#d2b48c", "#f4a460", "#daa520", "#cd853f", "#d2691e", "#8b4513", "#a0522d"]
+                "colors": ["#8b4513", "#a0522d", "#cd853f", "#deb887", "#d2691e", "#b8860b", "#bc8f8f", "#d2b48c", "#f4a460", "#daa520", "#cd853f", "#d2691e", "#8b4513", "#a0522d", "#cd853f"]
             }
         }
     ],
