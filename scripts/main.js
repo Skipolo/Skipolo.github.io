@@ -18,17 +18,65 @@ function handleHashRoute() {
         if (post) {
             displayPost(post);
         } else {
-            loadPosts(); // Fallback to main page if post not found
+            displayPostsList(); // Show main page if post not found
         }
     } else {
-        loadPosts();
+        displayPostsList();
     }
 }
 
-// Add event listeners for hash changes and initial load
-window.addEventListener('hashchange', handleHashRoute);
+// Function to display the list of posts
+function displayPostsList() {
+    const postsContainer = document.getElementById('posts-container');
+    
+    // Group posts by day
+    const postsByDay = {};
+    posts.forEach(post => {
+        if (!postsByDay[post.day]) {
+            postsByDay[post.day] = [];
+        }
+        postsByDay[post.day].push(post);
+    });
+    
+    // Sort days
+    const sortedDays = Object.keys(postsByDay).sort((a, b) => {
+        if (!isNaN(a) && !isNaN(b)) return b - a;
+        if (!isNaN(a) && isNaN(b)) return -1;
+        if (isNaN(a) && !isNaN(b)) return 1;
+        return b.localeCompare(a);
+    });
+    
+    postsContainer.innerHTML = '';
+    
+    sortedDays.forEach(day => {
+        const daySection = document.createElement('div');
+        daySection.className = 'day-section';
+        
+        const dayHeader = document.createElement('div');
+        dayHeader.className = 'day-header';
+        dayHeader.innerHTML = `<h2>${day}</h2>`;
+        daySection.appendChild(dayHeader);
+        
+        postsByDay[day].forEach(post => {
+            const postCard = document.createElement('div');
+            postCard.className = 'post-card';
+            postCard.innerHTML = `
+                <h3>${post.title}</h3>
+                <p class="date">${post.date}</p>
+                <p class="preview">${post.preview}</p>
+            `;
+            
+            postCard.addEventListener('click', () => {
+                handlePostClick(post);
+            });
+            daySection.appendChild(postCard);
+        });
+        
+        postsContainer.appendChild(daySection);
+    });
+}
 
-// Function to load and parse posts
+// Function to load posts data
 async function loadPosts() {
     const postsContainer = document.getElementById('posts-container');
     postsContainer.innerHTML = '<div class="loading"></div>';
@@ -41,67 +89,10 @@ async function loadPosts() {
         const data = await response.json();
         posts = data.posts;
         
-        // Sort posts by date in descending order
+        // Sort posts by date
         posts.sort((a, b) => new Date(b.date) - new Date(a.date));
         
-        // Group posts by day
-        const postsByDay = {};
-        posts.forEach(post => {
-            if (!postsByDay[post.day]) {
-                postsByDay[post.day] = [];
-            }
-            postsByDay[post.day].push(post);
-        });
-        
-        // Sort days in descending order, handling both numeric and string values
-        const sortedDays = Object.keys(postsByDay).sort((a, b) => {
-            // If both are numbers, sort numerically
-            if (!isNaN(a) && !isNaN(b)) {
-                return b - a;
-            }
-            // If one is a number and one is a string, numbers come first
-            if (!isNaN(a) && isNaN(b)) return -1;
-            if (isNaN(a) && !isNaN(b)) return 1;
-            // If both are strings, sort alphabetically
-            return b.localeCompare(a);
-        });
-        
-        // Display posts grouped by day
-        postsContainer.innerHTML = '';
-        
-        if (sortedDays.length === 0) {
-            postsContainer.innerHTML = '<div class="no-posts">No posts available.</div>';
-            return;
-        }
-        
-        sortedDays.forEach(day => {
-            const daySection = document.createElement('div');
-            daySection.className = 'day-section';
-            
-            const dayHeader = document.createElement('div');
-            dayHeader.className = 'day-header';
-            dayHeader.innerHTML = `<h2>${day}</h2>`;
-            daySection.appendChild(dayHeader);
-            
-            postsByDay[day].forEach(post => {
-                const postCard = document.createElement('div');
-                postCard.className = 'post-card';
-                postCard.innerHTML = `
-                    <h3>${post.title}</h3>
-                    <p class="date">${post.date}</p>
-                    <p class="preview">${post.preview}</p>
-                `;
-                
-                postCard.addEventListener('click', () => {
-                    handlePostClick(post);
-                });
-                daySection.appendChild(postCard);
-            });
-            
-            postsContainer.appendChild(daySection);
-        });
-
-        // After loading posts, handle routing
+        // Handle routing after posts are loaded
         handleHashRoute();
     } catch (error) {
         console.error('Error loading posts:', error);
@@ -116,7 +107,6 @@ async function loadPosts() {
 
 // Function to handle post click
 function handlePostClick(post) {
-    // Update URL with post ID
     const newUrl = `#post-${post.id}`;
     window.location.hash = newUrl;
     displayPost(post);
