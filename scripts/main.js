@@ -25,6 +25,9 @@ function handleHashRoute() {
     }
 }
 
+// Add event listeners for hash changes and initial load
+window.addEventListener('hashchange', handleHashRoute);
+
 // Function to load and parse posts
 async function loadPosts() {
     const postsContainer = document.getElementById('posts-container');
@@ -97,6 +100,9 @@ async function loadPosts() {
             
             postsContainer.appendChild(daySection);
         });
+
+        // After loading posts, handle routing
+        handleHashRoute();
     } catch (error) {
         console.error('Error loading posts:', error);
         postsContainer.innerHTML = `
@@ -207,9 +213,5 @@ window.addEventListener('popstate', (event) => {
     handleHashRoute();
 });
 
-// Handle URL changes
-window.addEventListener('hashchange', handleHashRoute);
-window.addEventListener('load', handleHashRoute);
-
-// Load posts when the page loads
+// Initialize the page
 document.addEventListener('DOMContentLoaded', loadPosts); 
