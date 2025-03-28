@@ -47,10 +47,16 @@ Below you can find information on all established groups.
 <img src="assets/banners/valkyries.png" alt="Valkyries Banner" class="faction-banner">
 </div>
 
+<div class="faction-entry">
+<div class="faction-info">
+
 ### Arenia
 - **Type:** Nation-state
 - **Members:** 14
 - **Leader:** MV_Cuber
+
+</div>
+</div>
 
 ## Organizations
 
@@ -78,15 +84,26 @@ Below you can find information on all established groups.
 <img src="assets/banners/possum_lodge.png" alt="Possum Lodge Banner" class="faction-banner">
 </div>
 
+<div class="faction-entry">
+<div class="faction-info">
+
 ### The Shai
 - **Type:** Religion
 - **Members:** 8
 - **Leader:** VirentTarot
 
+</div>
+</div>
+
+<div class="faction-entry">
+<div class="faction-info">
+
 ### Knights Remplar
 - **Type:** Charity
 - **Members:** 7
-- **Leader:** KB
+
+</div>
+</div>
 
 ### Seeking Souls
 - **Type:** Surveyors

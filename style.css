@@ -967,18 +967,21 @@ footer {
     display: flex;
     align-items: flex-start;
     gap: 2rem;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
+    max-width: 100%;
 }
 
 .faction-info {
     flex: 1;
+    min-width: 0; /* Prevents text from pushing banner off screen */
 }
 
 .faction-banner {
     width: 100px;
     height: 200px;
     object-fit: contain;
-    border: 2px solid var(--border-color);
+    flex-shrink: 0; /* Prevents banner from shrinking */
+    border: 1px solid var(--border-color);
     border-radius: 4px;
     box-shadow: 0 2px 4px var(--shadow-color);
 }
