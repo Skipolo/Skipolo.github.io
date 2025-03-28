@@ -71,6 +71,7 @@ Below you can find information on all established groups.
 - **Type:** Business
 - **Members:** 15
 - **Leader:** Izzy_The_Tiger
+- **Notes:** Toadstool Tavern is a tavern business for drunkards and wayward travelers. They are a long-respected establishment with a large number of employees. They are known for neutrality and peace even in times of dire international war, calamity, and total armageddon.
 
 </div>
 <img src="assets/banners/toadstool_tavern.png" alt="Toadstool Tavern Banner" class="faction-banner">
@@ -83,6 +84,7 @@ Below you can find information on all established groups.
 - **Type:** Guild
 - **Members:** 13
 - **Leader:** Wilkman
+- **Notes:** Possum Lodge is a private adventurer's guild and hangout spot. They require commitment to their values and engage in nature-related hobbies.
 
 </div>
 <img src="assets/banners/possum_lodge.png" alt="Possum Lodge Banner" class="faction-banner">
@@ -95,6 +97,7 @@ Below you can find information on all established groups.
 - **Type:** Religion
 - **Members:** 8
 - **Leader:** VirentTarot
+- **Notes:** The Shai is a religious organization with an obsession with fate. Their worldview is confusing as it seems they both claim to see your fate but also not see it because its up to you to determine your fate. At least they are not as oxymoronic as sinful angels.
 
 </div>
 </div>
@@ -106,6 +109,7 @@ Below you can find information on all established groups.
 - **Type:** Charity
 - **Members:** 7
 - **Leader:** KB
+- **Notes:** Knights Remplar is a new and original charity group devoted to protecting the innocent, serving others, and maintaining peace. Knights give oaths declaring their commitment to the values of the group and their abstinence from pinging Rempel.
 
 </div>
 <img src="assets/banners/knights_remplar.png" alt="Knights Remplar Banner" class="faction-banner">
@@ -118,6 +122,7 @@ Below you can find information on all established groups.
 - **Type:** News Organization
 - **Members:** 1
 - **Leader:** Skipolo
+- **Notes:** Unbiased news agency that heralds decelerationism and preventing armageddon.
 
 </div>
 <img src="assets/banners/banner.png" alt="Dimitte Omnia Banner" class="faction-banner">
@@ -135,32 +140,67 @@ Below you can find information on all established groups.
 </div>
 </div>
 
+<div class="faction-entry">
+<div class="faction-info">
+
 ### Seeking Souls
 - **Type:** Surveyors
 - **Members:** 5
 - **Leader:** 5Doodle
+- **Notes:** Adventurerer-anthropologists that clear dungeons, map out the world, and analyze civilizations. They are known for their novel Civilization Development Index (CDI) that measure the development and human rights of the various civilizations.
+
+</div>
+</div>
+
+<div class="faction-entry">
+<div class="faction-info">
 
 ### Skylark Dailies
 - **Type:** News Agency
 - **Members:** 2
 - **Leader:** Mizzen
+- **Notes:** News agency led by Mizzen and employs Adderhoods. Financed by the nation of Arenia. Possible state propaganda.
+
+</div>
+</div>
+
+<div class="faction-entry">
+<div class="faction-info">
 
 ### Helmside Edition
 - **Type:** News Agency
 - **Members:** 1
 - **Leader:** rikity
+- **Notes:** Unbiased news agency.
+
+</div>
+</div>
+
+<div class="faction-entry">
+<div class="faction-info">
 
 ### Frederick Ulritch
 - **Type:** Detective Agency
 - **Members:** 1
 - **Leader:** Myasnik
+- **Notes:** Private detective agency taking clients.
+
+</div>
+</div>
+
+<div class="faction-entry">
+<div class="faction-info">
 
 ### The Gentleman Bastards
 - **Type:** lolcow
 - **Members:** 1
 - **Leader:** WizzyWhigg
+- **Notes:** Despite asking 100 people, has recieved no new members.
 
-## Population Distribution
+</div>
+</div>
+
+### Population Distribution
 
 <div class="plotly-graph" data-plotly='{
     "data": [
